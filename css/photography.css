@@ -1,0 +1,258 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #000000, #000000);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.portfolio {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+.highlight {
+  color: #ffcc00;;
+  font-weight: 700;
+}
+
+.title {
+  color: #ffffff;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 🔥 Animation Style */
+.gallery img {
+  width: 180px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeZoom 1.2s forwards;
+}
+
+/* Sequential delay for each image */
+.gallery img:nth-child(1) { animation-delay: 0.2s; }
+.gallery img:nth-child(2) { animation-delay: 0.4s; }
+.gallery img:nth-child(3) { animation-delay: 0.6s; }
+.gallery img:nth-child(4) { animation-delay: 0.8s; }
+.gallery img:nth-child(5) { animation-delay: 1s; }
+
+@keyframes fadeZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover Zoom + Shadow Effect */
+.gallery img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.footer {
+  margin-top: 40px;
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.9;
+  font-family: 'Poppins', sans-serif;
+}
+.amazon-btn {
+  display: inline-block;
+  background: #ffcc00;
+  color: #000;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-left: 700px;
+}
+
+.amazon-btn span {
+  font-weight: 700;
+}
+
+.amazon-btn:hover {
+  background: #e6b800;
+}
+.amazon {
+  display: inline-block;
+  background: #ffcc00;
+  color: #000;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+
+}
+
+
+/* ==========================
+   🎠 Swipe Carousel Styling
+   ========================== */
+
+.carousel {
+  width: 180px;               /* match your gallery img width */
+  height: 260px;              /* match your gallery img height */
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  border-radius: 10px;
+  scrollbar-width: none;
+  display: flex;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  animation: fadeZoom 1.2s forwards;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* fade-in animation (same as gallery images) */
+.carousel:nth-child(1) { animation-delay: 0.2s; }
+@keyframes fadeZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+}
+
+.carousel img {
+  width: 180px;
+  height: 260px;
+  object-fit: cover;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.carousel img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+
+/* ==========================
+   ⬅️➡️ Carousel Arrows
+   ========================== */
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  width: 180px;
+  height: 260px;
+  border-radius: 10px;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel img {
+  width: 180px;
+  height: 260px;
+  object-fit: cover;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.carousel img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #ffcc00;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.arrow:hover {
+  background: rgba(255, 204, 0, 0.3);
+}
+
+.arrow.left {
+  left: -15px;
+}
+
+.arrow.right {
+  right: -15px;
+}
+
+/* Dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #666;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot.active {
+  background-color: #ffcc00;
+  transform: scale(1.3);
+}
+
