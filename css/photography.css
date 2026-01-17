@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  background-image:url("image/photography.jpg")
+    margin: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #000000, #000000);
   color: #fff;
